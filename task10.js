@@ -1,8 +1,11 @@
+import express from 'express';
 import { readFile, appendFile } from 'fs';
+const app = express()
 let data = "1.,Shef33,abcd,she@gmail,shefali,B.E";
 let data1 = "2.,Indu17,abcd,indu@gmail,Indu,D.Pharma";
 // let data1 ="2,Shef33,abcd,indu@gmail,Indu,D.Pharma\n\r"
 export function addRecord(){
+    app.get('/', function(req,res){
     readFile('newtask1.txt', 'utf8', function(err, contents){
     if (err){
         appendFile('newtask1.txt',data,function(){
@@ -15,14 +18,18 @@ export function addRecord(){
         let newArray = value.map(element => element.split(',')[1])  
             if(newArray.includes(value1[1])){
                 console.log("Username alredy taken...");
+                res.send("Username alredy taken...")
             }
             else{
                 appendFile('newtask1.txt',`\n\r${data1}`,function(){
                     console.log("Data added...");
+                    res.send("Data added...")
                 })
             }
         }
     });
+});
+app.listen(2000);
 };
 
 
