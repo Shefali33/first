@@ -1,0 +1,41 @@
+import { readFile, appendFile } from 'fs';
+let data = "1.,Shef33,abcd,she@gmail,shefali,B.E";
+let data1 = "2.,Shef3,abcd,indu@gmail,Indu,D.Pharma";
+// let data1 ="2,Shef33,abcd,indu@gmail,Indu,D.Pharma\n\r"
+export function addRecord(){
+    readFile('newtask1.txt', 'utf8', function(err, contents){
+    if (err){
+        appendFile('newtask1.txt',data,function(){
+            console.log("File created and record added");
+        })
+    }  
+
+   else{
+        let value = contents.split(/[\n\r]+/g);
+        console.log(value[1]);
+        let value1 = data1.split(',');
+        // console.log(value); 
+        value.forEach(function(element){  
+                // console.log(value1[1] == element.split(",")[1])
+            if(value1[1] == element.split(",")[1]){
+                console.log("Record Exists");
+                console.log(value1[1]);
+                console.log(element.split(',')[1]);
+                return false;
+            }
+            else{
+                appendFile('newtask1.txt',`\n\r${data1}`,function(){
+                    console.log("Data added*****");
+                   
+
+                })
+            }
+            
+        });
+    }
+    });
+};
+
+
+
+  
