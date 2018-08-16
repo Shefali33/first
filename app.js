@@ -62,3 +62,5 @@ moveApi();
 import { addRecord } from './task10.js';
 addRecord();
 
+// import { updateRecord } from './taskput.js';
+// updateRecord();

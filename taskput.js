@@ -5,8 +5,8 @@ const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
-export function addRecord(){
-    app.post('/post1', function (req, res) {
+export function updateRecord(){
+    app.put('/post1/:id', function (req, res) {
         let data = req.body.v1;
         let data1 =req.body.v2;
             readFile('newtask1.txt', 'utf8', function(err, contents){
