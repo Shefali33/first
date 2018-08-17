@@ -1,0 +1,43 @@
+import express from 'express';
+import bodyParser from 'body-parser';
+import { readFile, appendFile } from 'fs';
+const app = express()
+app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+export function updateRecord(){
+    app.put('/post1/:id', function (req, res) {
+        let id = req.params.id;
+        let name = req.body.v1[1];
+        console.log(id);
+        let data = req.body.v2;
+        // let data1 =req.body.v2;
+            readFile('newtask1.txt', 'utf8', function(err, contents){
+            if (err){
+                appendFile('newtask1.txt',data,function(){
+                    console.log("File created and record added");
+                })
+            }
+            else{
+                let value = contents.split(/[\n\r]+/g);
+                // let value1 = data1.split(',');
+                let newArray = value.map(element => element.split(','))  
+                    newArray.findById(id), function(err ,user){
+                        if (err) res.send(err);
+                        if (user){
+                            console.log(user);
+                        newArray[0][1] = name;
+                        // console.log("abcd..");
+                        res.send("Username Updated...")
+                    }
+                    // else{
+                    //     // appendFile('newtask1.txt',`\n\r${data1}`,function(){
+                    //         console.log("Cannot update data...");
+                    //         // res.send("Data added...")
+                    //     // })
+                    }
+                }
+            });
+        });
+    app.listen(4000);
+};

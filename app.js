@@ -3,18 +3,18 @@ let first = () => {
 }
 first();
 
-import express from 'express';
-import bodyParser from 'body-parser';
+// import express from 'express';
+// import bodyParser from 'body-parser';
 
-const app = express()
-app.use(bodyParser.json())
-app.get('/',(res) => res.send("Hello World"))
-app.listen(3000);
+// const app = express()
+// app.use(bodyParser.json())
+// app.get('/',(res) => res.send("Hello World"))
+// app.listen(3000);
 
-app.post('/post', function (req, res) {
-    console.log("res ",req.body)
-    res.send('POST request to the homepage')
-  })
+// app.post('/post', function (req, res) {
+//     console.log("res ",req.body)
+//     res.send('POST request to the homepage')
+//   })
 
 import { area } from './server.js';
 console.log(`The area of a circle of radius 4 is ${area(4)}`);
@@ -59,8 +59,11 @@ moveApi();
 // }
 // copyData('Dest.txt','newtask.txt');
 
-import { addRecord } from './task10.js';
-addRecord();
+// import { addRecord } from './task10.js';
+// addRecord();
 
-// import { updateRecord } from './taskput.js';
-// updateRecord();
+import { updateRecord } from './taskput.js';
+updateRecord();
+
+// import { deleteRecord } from './taskdel.js';
+// deleteRecord();
