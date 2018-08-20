@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import { readFile, appendFile } from 'fs';
 const app = express()
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 export function addRecord(){
     app.post('/post1', function (req, res) {

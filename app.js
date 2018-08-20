@@ -3,6 +3,10 @@ let first = () => {
 }
 first();
 
+
+
+
+
 // import express from 'express';
 // import bodyParser from 'body-parser';
 
@@ -62,8 +66,12 @@ moveApi();
 // import { addRecord } from './task10.js';
 // addRecord();
 
-import { updateRecord } from './taskput.js';
-updateRecord();
+// import { updateRecord } from './taskput.js';
+// updateRecord();
 
 // import { deleteRecord } from './taskdel.js';
 // deleteRecord();
+
+import { addUser } from './mongotask.js';
+addUser();
+
